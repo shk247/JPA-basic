@@ -1,12 +1,11 @@
-package hello.jpa;
+package jpabook.jpashop;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
-public class JpaMain {
+public class JPAMain {
     public static void main(String[] args) {
         // 애플리케이션 로딩 시점에 하나만 만들어야함
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
@@ -18,25 +17,7 @@ public class JpaMain {
         ts.begin();
 
         try {
-            // 회원 추가
-//            Member member = new Member();
-//            member.setId(2L);
-//            member.setName("helloB");
-//            em.persist(member);
-//            ts.commit();
-
-            // 회원 수정
-//            Member findmember = em.find(Member.class, 1L);
-//            findmember.setName("HelloJPA");
-//            ts.commit();
-
-            // 전체 회원 조회
-            // JPA는 객체를 대상으로 쿼리함
-//            List<Member> res = em.createQuery("select m from Member as m", Member.class)
-//                    .setFirstResult(1)
-//                    .setMaxResults(10)
-//                    .getResultList();
-
+            ts.commit();
         }catch (Exception e){
             ts.rollback();
         }finally {
