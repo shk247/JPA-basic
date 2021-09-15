@@ -1,6 +1,6 @@
 package hello.jpa;
 
-import javax.persistence.EntityManager;
+ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
@@ -36,7 +36,42 @@ public class JpaMain {
 //                    .setFirstResult(1)
 //                    .setMaxResults(10)
 //                    .getResultList();
+            // 객체 지향 모델링
+//            Team team = new Team();
+//            team.setName("TeamA");
+//            em.persist(team);
+//
+//            Member member = new Member();
+//            member.setUsername("member1");
+//            //member.changeTeam(team);
+//            em.persist(member);
+//
+//            team.addMember(member);
+//
+//            em.flush();
+//            em.clear();
+//
+//            Member member1 = em.find(Member.class, member.getId());
+//            for (Member member2 : member1.getTeam().getMembers()) {
+//                System.out.println("member getUsername = " + member2.getUsername());
+//            }
 
+            Member member = new Member();
+            member.setUsername("member3");
+            em.persist(member);
+//
+//            Team team = new Team();
+//            team.setName("teamA");
+//            team.getMembers().add(member);
+//
+//            Member member2 = new Member();
+//            member2.setUsername("member4");
+//            em.persist(member2);
+//
+//            team.getMembers().add(member2);
+//
+//            em.persist(team);
+            ts.commit();
         }catch (Exception e){
             ts.rollback();
         }finally {
